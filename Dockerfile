@@ -1,4 +1,4 @@
-FROM --platform=amd64 ubuntu:20.04
+FROM --platform=linux/amd64 ubuntu:20.04
 ENV TZ="Asia/Tokyo"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
@@ -29,12 +29,14 @@ RUN apt-get update \
     libc6-dev-amd64-cross \
     binutils-x86-64-linux-gnu \
     x11-apps \
+    vim \
  && apt-get clean -y \
  && rm -rf /var/lib/apt/lists
-
 
 
 # set X11 server address
 ENV DISPLAY=host.docker.internal:0
 
-WORKDIR /root/c
+WORKDIR /root/
+
+RUN git clone --recursive https://github.com/tianocore/edk2 edk2
