@@ -38,5 +38,13 @@ RUN apt-get update \
 ENV DISPLAY=host.docker.internal:0
 
 WORKDIR /root/
-
 RUN git clone --recursive https://github.com/tianocore/edk2 edk2
+RUN git clone https://github.com/uchan-nos/mikanos-build.git mikanos-build
+
+# EDK initialize and BaseTools install
+WORKDIR /root/edk2
+RUN /bin/bash -c "source edksetup.sh && make -C BaseTools" 
+
+
+
+WORKDIR /root/
