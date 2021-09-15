@@ -44,7 +44,7 @@ RUN git clone https://github.com/uchan-nos/mikanos-build.git mikanos-build
 # EDK initialize and BaseTools install
 WORKDIR /root/edk2
 RUN /bin/bash -c "source edksetup.sh && make -C BaseTools" 
-
+COPY target.txt /root/edk2/Conf/target.txt
 
 
 WORKDIR /root/
