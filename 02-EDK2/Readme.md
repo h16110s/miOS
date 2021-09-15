@@ -63,6 +63,11 @@ macOSで実行する場合、最後の`TOOL_CHAIN_TAG`を変える必要があ�
 build 
 ```
 
+debugを入れなければ使えた？
+```
+build --platform=MiLoaderPkg/MiLoaderPkg.dsc --arch=X64 --tagname=CLANG38
+```
+
 
 
 これが完了すると`edk2/Build/MiLoaderX64/DEBUG_CLANG38/X64/Loader.efi`が作成されている。
